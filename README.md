@@ -28,6 +28,7 @@ The backend exposes RESTful endpoints consumed by a **Next.js** frontend via **S
 
 * Python 3.10+
 * Virtual Environment (recommended)
+* **Docker** & **Docker Compose** (for containerized local run)
 
 ### Installation
 
@@ -38,24 +39,32 @@ The backend exposes RESTful endpoints consumed by a **Next.js** frontend via **S
    cd adgc2nn-backend
    ```
 
-2. **Create virtual environment:**
+2. **Create virtual environment (Optional for Docker):**
 
    ```bash
    python -m venv venv
    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
    ```
 
-3. **Install dependencies:**
+3. **Install dependencies (Local Python only):**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Run the server (Development):**
+4. **Run the server:**
 
+   **Option A: Python (Direct)**
    ```bash
    uvicorn app.main:app --reload --port 3001
    ```
+
+   **Option B: Docker (Simulate Production)**
+   This runs the full stack (Frontend + Backend + Nginx) locally without SSL.
+   ```bash
+   docker compose up --build
+   ```
+   Access the app at http://localhost.
 
 ## 📡 API Reference
 
